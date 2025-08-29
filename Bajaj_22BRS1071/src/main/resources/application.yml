@@ -7,7 +7,7 @@ bfhl:
   email: "parththelosercoder@gmail.com"
   reg-no: "22BRS1071"   # <-- ODD last two digits
 
-# Final SQL for ODD (Question 1) — MySQL version
+# SQL for ODD (Question 1)
 final-query: |
   SELECT
     p.amount AS SALARY,
@@ -20,3 +20,4 @@ final-query: |
   WHERE DAY(p.payment_time) <> 1
   ORDER BY p.amount DESC
   LIMIT 1;
+
