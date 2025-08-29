@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+bfhl:
+  base-url: "https://bfhldevapigw.healthrx.co.in"
+  name: "Parth Sonkar"
+  email: "parththelosercoder@gmail.com"
+  reg-no: "22BRS1071"   # <-- ODD last two digits
+
+# Final SQL for ODD (Question 1) — MySQL version
+final-query: |
+  SELECT
+    p.amount AS SALARY,
+    CONCAT(e.first_name, ' ', e.last_name) AS NAME,
+    TIMESTAMPDIFF(YEAR, e.dob, CURDATE()) AS AGE,
+    d.department_name AS DEPARTMENT_NAME
+  FROM payments p
+  JOIN employee e ON e.emp_id = p.emp_id
+  JOIN department d ON d.department_id = e.department
+  WHERE DAY(p.payment_time) <> 1
+  ORDER BY p.amount DESC
+  LIMIT 1;
