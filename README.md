@@ -1,2 +1,4 @@
 # bajaj-challenge
-Bajaj Challenge 22BRS1071
+Bajaj Challenge 
+Parth Sonkar
+22BRS1071
