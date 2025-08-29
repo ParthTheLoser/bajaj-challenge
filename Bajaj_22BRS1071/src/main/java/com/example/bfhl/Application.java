@@ -71,7 +71,6 @@ public class Application {
                 throw new IllegalStateException("Failed to generate webhook — response was null");
             }
 
-            // Try to be flexible about response field names
             String accessToken = text(genResp, "accessToken", "token", "jwt", "access_token");
             String webhookUrl = text(genResp, "webhook", "webhookUrl", "url");
 
@@ -88,7 +87,7 @@ public class Application {
 
             String submitResp = client.post()
                     .uri(webhookUrl)
-                    .header(HttpHeaders.AUTHORIZATION, accessToken) // raw JWT in Authorization header
+                    .header(HttpHeaders.AUTHORIZATION, accessToken) 
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(BodyInserters.fromValue(answer))
                     .retrieve()
@@ -105,7 +104,7 @@ public class Application {
             JsonNode v = node.get(k);
             if (v != null && !v.isNull()) return v.asText();
         }
-        // try nested common patterns: { data: { ... } }
+
         JsonNode data = node.get("data");
         if (data != null) {
             for (String k : keys) {
@@ -116,3 +115,4 @@ public class Application {
         return null;
     }
 }
+
