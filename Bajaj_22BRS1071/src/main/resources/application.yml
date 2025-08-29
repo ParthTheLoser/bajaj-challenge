@@ -4,7 +4,7 @@ server:
 bfhl:
   base-url: "https://bfhldevapigw.healthrx.co.in"
   name: "Parth Sonkar"
-  email: "parththelosercoder@gmail.com"
+  email: "parth.sonkar2022@viststudent.ac.in"
   reg-no: "22BRS1071"   # <-- ODD last two digits
 
 # SQL for ODD (Question 1)
@@ -20,4 +20,5 @@ final-query: |
   WHERE DAY(p.payment_time) <> 1
   ORDER BY p.amount DESC
   LIMIT 1;
+
 
